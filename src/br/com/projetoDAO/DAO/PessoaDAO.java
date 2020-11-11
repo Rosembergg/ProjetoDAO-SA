@@ -55,7 +55,7 @@ public class PessoaDAO {
     }
     
     public boolean update(Pessoa p){
-        String sql = "update pessoa set = nome = ?,profissao = ? where id = ?";
+        String sql = "update pessoa set nome = ? ,profissao = ? where id = ?";
         con = Conexao.conectar();
         try {
             pst = con.prepareStatement(sql);
@@ -75,5 +75,26 @@ public class PessoaDAO {
             Conexao.desconectar(con);
         }
         
+  
+    }
+    
+    public boolean delete(int id){
+        String sql = "DELETE FROM pessoa WHERE id= ?";
+        con = Conexao.conectar();
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1,id);
+            int r = pst.executeUpdate();
+            if(r>0){
+                System.out.println("Dados deletados");
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("Erro"+e);
+            return false;
+        }
+        finally{
+            Conexao.desconectar(con);
+        }
     }
 }

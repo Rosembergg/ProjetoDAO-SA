@@ -11,11 +11,17 @@ public class Pessoa {
         this.nome = nome;
         this.profissao = profissao;
     }
+
+    public Pessoa(int id,String nome,String profissao) {
+        this.id = id;
+        this.nome = nome;
+        this.profissao = profissao;
+    }
     
     
 
     public int getId() {
-        return id;
+        return id; 
     }
 
     public String getNome() {
@@ -37,6 +43,10 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + ", profissao=" + profissao + '}';
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
